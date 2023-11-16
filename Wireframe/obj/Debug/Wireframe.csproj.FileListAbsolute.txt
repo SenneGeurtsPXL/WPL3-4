@@ -1,0 +1,15 @@
+D:\PXL\GIT\WPL3-4\Wireframe\bin\Debug\Wireframe.exe.config
+D:\PXL\GIT\WPL3-4\Wireframe\bin\Debug\Wireframe.exe
+D:\PXL\GIT\WPL3-4\Wireframe\bin\Debug\Wireframe.pdb
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe.csproj.AssemblyReference.cache
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\MainWindow.g.cs
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\App.g.cs
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe_MarkupCompile.cache
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe_MarkupCompile.lref
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\MainWindow.baml
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe.g.resources
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe.Properties.Resources.resources
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe.csproj.GenerateResource.cache
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe.csproj.CoreCompileInputs.cache
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe.exe
+D:\PXL\GIT\WPL3-4\Wireframe\obj\Debug\Wireframe.pdb
