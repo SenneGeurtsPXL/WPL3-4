@@ -43,7 +43,7 @@ obj/
 *.suo
 *.user
 *.userosscache
-*.sln.docstates
+*.docstates
 
 # Mono Auto Generated Files
 mono_crash.*
