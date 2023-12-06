@@ -22,20 +22,15 @@ namespace B_tube_test_automation_framework
             
             driver.Navigate().Refresh();
             driver.Manage().Window.Maximize();
-
-
-            
+ 
             WebDriverWait wait = new WebDriverWait (driver, TimeSpan.FromSeconds(60));
 
             driver.Navigate().Refresh();
-            Thread.Sleep(10000);
-
+            Thread.Sleep(5000);
 
 
             IWebElement signInButton = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
             signInButton.Click();
-
-
 
 
             IWebElement userName = wait.Until(ExpectedConditions.ElementExists(By.Id ("SignInEmail")));
@@ -49,8 +44,6 @@ namespace B_tube_test_automation_framework
             signInButtonComplete.Click();
 
             Thread.Sleep(10000);
-
-
 
 
             driver.Quit();
