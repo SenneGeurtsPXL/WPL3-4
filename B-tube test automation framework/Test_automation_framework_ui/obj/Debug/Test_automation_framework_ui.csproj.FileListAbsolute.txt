@@ -1,0 +1,20 @@
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\selenium-manager\linux\selenium-manager
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\selenium-manager\macos\selenium-manager
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\Test_automation_framework_ui.exe.config
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\Test_automation_framework_ui.exe
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\Test_automation_framework_ui.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\B-tube test automation framework.dll
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\nunit.framework.dll
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\WebDriver.dll
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\Newtonsoft.Json.dll
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\B-tube test automation framework.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\nunit.framework.xml
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\WebDriver.xml
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\Newtonsoft.Json.xml
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.csproj.AssemblyReference.cache
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.csproj.CoreCompileInputs.cache
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.csproj.CopyComplete
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.exe
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.pdb

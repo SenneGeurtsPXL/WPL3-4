@@ -1,0 +1,27 @@
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\B-tube_Test_atomation_framework_ui.exe
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\B-tube_Test_atomation_framework_ui.deps.json
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\B-tube_Test_atomation_framework_ui.runtimeconfig.json
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\B-tube_Test_atomation_framework_ui.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\B-tube_Test_atomation_framework_ui.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\B-tube test automation framework.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\nunit.framework.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\WebDriver.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\B-tube test automation framework.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\nunit.framework.xml
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\WebDriver.xml
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\bin\Debug\net6.0\Newtonsoft.Json.xml
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.csproj.AssemblyReference.cache
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.GeneratedMSBuildEditorConfig.editorconfig
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.AssemblyInfoInputs.cache
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.AssemblyInfo.cs
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.csproj.CoreCompileInputs.cache
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.csproj.CopyComplete
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\refint\B-tube_Test_atomation_framework_ui.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\B-tube_Test_atomation_framework_ui.genruntimeconfig.cache
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube_Test_atomation_framework_ui\obj\Debug\net6.0\ref\B-tube_Test_atomation_framework_ui.dll

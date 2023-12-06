@@ -17,3 +17,22 @@ D:\School\.NET\C#STAGE\B-tube test automation framework\B-tube test automation f
 D:\School\.NET\C#STAGE\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.CopyComplete
 D:\School\.NET\C#STAGE\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.dll
 D:\School\.NET\C#STAGE\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\selenium-manager\linux\selenium-manager
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\selenium-manager\macos\selenium-manager
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\selenium-manager\windows\selenium-manager.exe
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\B-tube test automation framework.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\B-tube test automation framework.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\Newtonsoft.Json.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.legacy.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\Newtonsoft.Json.xml
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.xml
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.legacy.xml
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.xml
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.AssemblyReference.cache
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.CoreCompileInputs.cache
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.CopyComplete
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.pdb
