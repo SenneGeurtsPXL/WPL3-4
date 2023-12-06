@@ -6,3 +6,66 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+/../../../../:\Repo\WPL3-4\.idea/dataSources/
+# .NET
+bin/
+obj/
+*.suo
+*.user
+*.dll
+*.exe
+*.pdb
+*.log
+*.config
+*.sqlite
+*.sdf
+*.db
+*.sqlite3
+*.db3
+*.nupkg
+*.so
+*.ipch/
+*.ncb
+*.swp
+*~
+*.vsidx
+
+# Visual Studio for Mac
+.vscode/
+.idea/
+.vscode/
+
+# Rider
+.idea/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Visual Studio Code directories
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
