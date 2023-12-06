@@ -36,3 +36,25 @@ D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework
 D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.CopyComplete
 D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.dll
 D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.pdb
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\selenium-manager\linux\selenium-manager
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\selenium-manager\macos\selenium-manager
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\selenium-manager\windows\selenium-manager.exe
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\B-tube test automation framework.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\B-tube test automation framework.pdb
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\Newtonsoft.Json.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.legacy.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\SeleniumExtras.WaitHelpers.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.Support.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\Newtonsoft.Json.xml
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.xml
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\nunit.framework.legacy.xml
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.xml
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.Support.xml
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.AssemblyReference.cache
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.CoreCompileInputs.cache
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.CopyComplete
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.dll
+C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.pdb

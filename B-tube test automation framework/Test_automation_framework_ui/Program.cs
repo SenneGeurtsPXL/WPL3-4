@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Test_automation_framework_ui
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
