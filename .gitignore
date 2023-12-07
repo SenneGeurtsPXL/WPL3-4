@@ -364,3 +364,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Test_Automation_Framework/.vs/Test_Automation_Framework/v17/TestStore/0/000.testlog
+/Test_Automation_Framework/Test_Automation_Framework/obj/Debug/net6.0/Test_Automation_Framework.csproj.AssemblyReference.cache
+/Test_Automation_Framework/Test_Automation_Framework/obj/Debug/net6.0/Test_Automation_Framework.GeneratedMSBuildEditorConfig.editorconfig
