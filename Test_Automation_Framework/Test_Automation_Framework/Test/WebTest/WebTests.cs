@@ -15,12 +15,7 @@ namespace Test_Automation_Framework.Test.WebTest
         public void CheckProfileInformation()
         {
             var browser = DriverManager.GetDriver(BrowserType.Chrome);
-
-
-            Console.WriteLine("--------------------------------------------------------------------------------");
-            Console.WriteLine("BROWSER");
-            Console.WriteLine("--------------------------------------------------------------------------------");
-
+            
             browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
             browser.Navigate().Refresh();
             browser.Manage().Window.Maximize();
@@ -40,8 +35,7 @@ namespace Test_Automation_Framework.Test.WebTest
 
             IWebElement signInButtonComplete = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
             signInButtonComplete.Click();
-
-
+            
             IWebElement profileButton = wait.Until(ExpectedConditions.ElementExists(By.CssSelector("a[href='#/profile'] button#OrdersPageButton")));
             profileButton.Click();
 
@@ -50,28 +44,10 @@ namespace Test_Automation_Framework.Test.WebTest
             wait.Until(ExpectedConditions.ElementExists(By.TagName("p")));
             IReadOnlyCollection<IWebElement> paragraphElements = browser.FindElements(By.TagName("p"));
 
-            foreach (IWebElement paragraph in paragraphElements)
-            {
-                if (paragraph.Text.Length > 0)
-                {
-                    Console.WriteLine("JA" + paragraph.Text.ToString());
-                    Console.WriteLine("JA" + paragraph.Text.ToString());
-                    Console.WriteLine("JA" + paragraph.Text.ToString());
-                    Console.WriteLine("JA" + paragraph.Text.ToString());
-
-                }
-
-            }
-
-            Thread.Sleep(7000);
+            Assert.IsTrue(paragraphElements.Count() >= 9, "not enough info on profile page");
 
             browser.Close();
-
             browser.Quit();
-            Console.WriteLine("--------------------------------------------------------------------------------");
-            Console.WriteLine("BROWSER" + "einde");
-            Console.WriteLine("--------------------------------------------------------------------------------");
-
         }
         #endregion
     }
