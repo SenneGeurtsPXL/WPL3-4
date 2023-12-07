@@ -1,39 +1,4 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Datasource local storage ignored files
-/../../../../:\Repo\WPL3-4\.idea/dataSources/
-/dataSources.local.xml
-# Editor-based HTTP Client requests
-/httpRequests/
-/../../../../:\Repo\WPL3-4\.idea/dataSources/
-# .NET
-bin/
-obj/
-*.suo
-*.user
-*.dll
-*.exe
-*.pdb
-*.log
-*.config
-*.sqlite
-*.sdf
-*.db
-*.sqlite3
-*.db3
-*.nupkg
-*.so
-*.ipch/
-*.ncb
-*.swp
-*~
-*.vsidx
-*.cache
-
-# Visual Studio for Mac
-.vscode/
-.idea/
+# Visual Studio Code
 .vscode/
 
 # Rider
@@ -44,7 +9,28 @@ obj/
 *.suo
 *.user
 *.userosscache
-*.docstates
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+
+# NUnit
+*.nupkg
+/packages/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
 # Mono Auto Generated Files
 mono_crash.*
@@ -59,7 +45,7 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Visual Studio Code directories
+# VS Code directories
 .vscode/
 
 # Windows Installer files
@@ -70,3 +56,57 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# JetBrains Rider
+.idea/
+
+# Rider
+.idea/
+*.sln.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider
+.idea/
+*.sln.iml
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
