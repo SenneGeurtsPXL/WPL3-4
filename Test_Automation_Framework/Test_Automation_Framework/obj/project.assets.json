@@ -1086,25 +1086,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mauri\\.nuget\\packages\\": {},
-    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\senne\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\WPL3-4\\Test_Automation_Framework\\Test_Automation_Framework\\Test_Automation_Framework.csproj",
+      "projectUniqueName": "D:\\PXL\\WPL3-4\\WPL3-4\\Test_Automation_Framework\\Test_Automation_Framework\\Test_Automation_Framework.csproj",
       "projectName": "Test_Automation_Framework",
-      "projectPath": "D:\\Repo\\WPL3-4\\Test_Automation_Framework\\Test_Automation_Framework\\Test_Automation_Framework.csproj",
-      "packagesPath": "C:\\Users\\mauri\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\WPL3-4\\Test_Automation_Framework\\Test_Automation_Framework\\obj\\",
+      "projectPath": "D:\\PXL\\WPL3-4\\WPL3-4\\Test_Automation_Framework\\Test_Automation_Framework\\Test_Automation_Framework.csproj",
+      "packagesPath": "C:\\Users\\senne\\.nuget\\packages\\",
+      "outputPath": "D:\\PXL\\WPL3-4\\WPL3-4\\Test_Automation_Framework\\Test_Automation_Framework\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mauri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\senne\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
