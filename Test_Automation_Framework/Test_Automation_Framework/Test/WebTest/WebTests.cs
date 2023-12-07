@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using Test_Automation_Framework.Framework.Driver;
+using Test_Automation_Framework.Framework.POM;
 
 namespace Test_Automation_Framework.Test.WebTest
 {
@@ -27,6 +28,7 @@ namespace Test_Automation_Framework.Test.WebTest
 
             IWebElement signInButton = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
             signInButton.Click();
+
 
             IWebElement userName = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInEmail")));
             IWebElement paswoord = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInPassword")));
