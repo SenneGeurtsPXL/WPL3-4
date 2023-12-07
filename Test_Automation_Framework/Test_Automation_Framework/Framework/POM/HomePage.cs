@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Test_Automation_Framework.Framework.POM
 {
-    internal class testest
+    internal class HomePage
     {
     }
 }
