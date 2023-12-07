@@ -29,6 +29,7 @@ obj/
 *.swp
 *~
 *.vsidx
+*.cache
 
 # Visual Studio for Mac
 .vscode/
