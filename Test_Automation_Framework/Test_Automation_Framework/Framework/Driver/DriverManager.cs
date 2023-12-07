@@ -30,6 +30,7 @@ namespace Test_Automation_Framework.Framework.Driver
             {
 
                 return new EdgeDriver();
+
             }
         }
         public static IWebDriver GetDriver(BrowserType browserType)
