@@ -40,3 +40,4 @@ C:\Repos\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\ob
 C:\Repos\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.csproj.CopyComplete
 C:\Repos\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.exe
 C:\Repos\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\obj\Debug\Test_automation_framework_ui.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\Test_automation_framework_ui\bin\Debug\SeleniumExtras.WaitHelpers.dll

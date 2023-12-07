@@ -65,17 +65,18 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.cs" />
-    <Compile Include="TestMauri.cs" />
-    <Compile Include="Web applicatie\Driver Manager\DriverManager.cs" />
+    <Compile Include="Testen\Web\test.cs" />
+    <Compile Include="Testen\Web\TestMauri.cs" />
+    <Compile Include="Framework\Driver Manager\DriverManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Framework\POM\" />
     <Folder Include="Mobile\Android\" />
     <Folder Include="Mobile\IOS\" />
-    <Folder Include="Web applicatie\POM\" />
+    <Folder Include="Testen\Mobile\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -58,3 +58,6 @@ C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framewor
 C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.csproj.CopyComplete
 C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.dll
 C:\Repos\WPL3-4\B-tube test automation framework\B-tube test automation framework\obj\Debug\B-tube test automation framework.pdb
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\SeleniumExtras.WaitHelpers.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.Support.dll
+D:\Repo\WPL3-4\B-tube test automation framework\B-tube test automation framework\bin\Debug\WebDriver.Support.xml

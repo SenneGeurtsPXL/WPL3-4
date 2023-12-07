@@ -12,7 +12,7 @@ namespace Test_automation_framework_ui
     {
         static void Main(string[] args)
         {
-            test.HardCodedTest();
+            TestMauri.HardCodedTest();
         }
     }
 }
