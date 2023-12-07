@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Framework\POM\" />
     <Folder Include="Test\MobileTest\" />
   </ItemGroup>
 
