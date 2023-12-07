@@ -57,6 +57,7 @@ namespace Test_Automation_Framework.Test.WebTest
                     Console.WriteLine("JA" + paragraph.Text.ToString());
                     Console.WriteLine("JA" + paragraph.Text.ToString());
                     Console.WriteLine("JA" + paragraph.Text.ToString());
+                    Console.WriteLine("JA" + paragraph.Text.ToString());
 
                 }
 
