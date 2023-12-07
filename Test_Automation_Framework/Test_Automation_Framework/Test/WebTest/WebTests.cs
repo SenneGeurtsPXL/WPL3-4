@@ -29,6 +29,7 @@ namespace Test_Automation_Framework.Test.WebTest
             IWebElement signInButton = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
             signInButton.Click();
 
+
             IWebElement userName = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInEmail")));
             IWebElement paswoord = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInPassword")));
             userName.SendKeys("stageadmin@stageadmin.stageadmin");
