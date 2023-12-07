@@ -1,5 +1,14 @@
 # Visual Studio Code
 .vscode/
+*.vsidx
+*.lock
+*.v2
+*.testlog
+*.suo
+*.cache
+*.editorconfig
+*.json
+*.props
 
 # Rider
 .idea/
