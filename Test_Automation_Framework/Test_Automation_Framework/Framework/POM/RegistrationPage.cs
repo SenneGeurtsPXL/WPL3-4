@@ -19,17 +19,31 @@ namespace Test_Automation_Framework.Framework.POM
         public IWebElement RePasswordInputField { get; set; }
         public IWebElement RegisterButton { get; set; }
         public IWebElement SignInLink { get; set; }
-        public RegistrationPage(BrowserType browser)
+        public IWebElement ValidationError { get; set; }
+        public WebDriverWait Wait { get; set; }
+
+
+        public RegistrationPage(IWebDriver browser)
         {
-            var driver = DriverManager.GetDriver(browser);
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
-            FirstNameInputField = wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterFirstName")));
-            LastNameInputField = wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterLastName")));
-            EmailInputField = wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterEmail")));
-            PasswordInputField = wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterPassword")));
-            RePasswordInputField = wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterRePassword")));
-            RegisterButton = wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterButtonComplete")));
-            SignInLink = wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
+            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
+            browser.Navigate().Refresh();
+            browser.Manage().Window.Maximize();
+            browser.Navigate().Refresh();
+            Thread.Sleep(10000);
+            Wait = new WebDriverWait(browser, TimeSpan.FromSeconds(60));
+            FirstNameInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterFirstName")));
+            LastNameInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterLastName")));
+            EmailInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterEmail")));
+            PasswordInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterPassword")));
+            RePasswordInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterRePassword")));
+            RegisterButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterButtonComplete")));
+            SignInLink = Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
+        }
+        public string GetValidationError()
+        {
+            ValidationError = Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
+            return ValidationError.Text;
+
         }
     }
 }

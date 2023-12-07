@@ -1,5 +1,6 @@
 ﻿
 using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V118.Network;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using Test_Automation_Framework.Framework.Driver;
@@ -52,5 +53,63 @@ namespace Test_Automation_Framework.Test.WebTest
             browser.Quit();
         }
         #endregion
+        #region Login form validation
+        [Test]
+        public void LoginFormValidation()
+        {
+            //na de login knop te drukken kan ik niks meer ingeven in de input fields
+            var browser = DriverManager.GetDriver(BrowserType.Chrome);
+
+            LoginPage loginPage = new LoginPage(browser);
+
+            string[] Emails = { "stage@stage.stage", "wrongmail.aze", "stage@stage.stage", "stage@stage.stage" };
+            string[] Passwords = { "Wrongpassword", "aze", "Stage0221!Stage0221!", "Stage0221!" };
+           
+            loginPage.EmailInputField.SendKeys(Emails[1]);
+
+            loginPage.PasswordInputField.SendKeys(Passwords[1]);
+            loginPage.LoginButton.Click();
+            Console.WriteLine(loginPage.GetValidationError());
+            Thread.Sleep(1000);
+
+            browser.Close();
+            browser.Quit();
+
+        }
+        #endregion
+        #region Registration form validation
+        [Test]
+        public void RegistrationFormValidation()
+        {
+            //deze pas maken wanneer we users uit de database kunnen halen
+            var browser = DriverManager.GetDriver(BrowserType.Chrome);
+
+            RegistrationPage registrationPage = new RegistrationPage(browser);
+
+            string[] firstNames = { "stagtage", "wrongmail", "stag", "stage" };
+            string[] lastNames = { "stagtage", "wrongmail", "stag", "stage" };
+            string[] Emails = { "stagtage", "wrongmail", "stag", "stage" };
+            string[] Passwords = { "Wrongpassword", "aze", "Stage022", "Stage0" };
+
+            registrationPage.FirstNameInputField.SendKeys("");
+            registrationPage.LastNameInputField.SendKeys("");
+
+            registrationPage.EmailInputField.SendKeys("");
+
+            registrationPage.PasswordInputField.SendKeys("");
+            registrationPage.RePasswordInputField.SendKeys("");
+
+            registrationPage.RegisterButton.Click();
+
+            Console.WriteLine(registrationPage.GetValidationError());
+
+            registrationPage.RegisterButton.Click();
+
+            browser.Close();
+            browser.Quit();
+
+        }
+        #endregion
+
     }
 }
