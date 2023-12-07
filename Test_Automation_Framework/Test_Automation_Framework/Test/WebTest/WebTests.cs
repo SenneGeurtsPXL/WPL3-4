@@ -55,6 +55,8 @@ namespace Test_Automation_Framework.Test.WebTest
                 if (paragraph.Text.Length > 0)
                 {
                     Console.WriteLine("JA" + paragraph.Text.ToString());
+                    Console.WriteLine("JA" + paragraph.Text.ToString());
+                    Console.WriteLine("JA" + paragraph.Text.ToString());
 
                 }
 
