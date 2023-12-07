@@ -111,5 +111,70 @@ namespace Test_Automation_Framework.Test.WebTest
         }
         #endregion
 
+        #region senne pom test
+        [Test]
+        public void testAllInfoDisplayed()
+        {
+            var browser = DriverManager.GetDriver(BrowserType.Chrome);
+            ProfilePage profilePage = new ProfilePage(browser);
+            profilePage.goToPage();
+            IReadOnlyCollection<IWebElement> elements = profilePage.getAllPElements();
+            Assert.IsTrue(elements.Count >= 9, "not enough elements");
+            browser.Close();
+            browser.Quit();
+        }
+        [Test]
+        public void testbutton()
+        {
+            var browser = DriverManager.GetDriver(BrowserType.Chrome);
+            ProfilePage profilePage = new ProfilePage(browser);
+            profilePage.goToPage();
+            IWebElement button = profilePage.creditButton();
+            Assert.IsNotNull(button, "no credit button found");
+            browser.Close();
+            browser.Quit();
+        }
+
+        [Test]
+        public void testCredits()
+        {
+            var browser = DriverManager.GetDriver(BrowserType.Chrome);
+            ProfilePage profilePage = new ProfilePage(browser);
+            profilePage.goToPage();
+            string firstAmount = profilePage.getCredits();
+            profilePage.addCredits(15);
+            Thread.Sleep(5000);
+            string secondAmount = profilePage.getCredits();
+            Assert.IsTrue(secondAmount == (int.Parse(firstAmount)+15).ToString(), "credits are not added or wrong amount is added");
+            browser.Close();
+            browser.Quit();
+        }
+
+        [Test]
+        public void testNegativeCredits()
+        {
+            var browser = DriverManager.GetDriver(BrowserType.Chrome);
+            ProfilePage profilePage = new ProfilePage(browser);
+            profilePage.goToPage();
+            string firstAmount = profilePage.getCredits();
+            profilePage.addCredits(-15);
+            Thread.Sleep(5000);
+            string secondAmount = profilePage.getCredits();
+            Assert.IsFalse(int.Parse(secondAmount) < int.Parse(firstAmount), "Negative credits can be added");
+            browser.Close();
+            browser.Quit();
+        }
+
+        [Test]
+        public void testButtonHover()
+        {
+            var browser = DriverManager.GetDriver(BrowserType.Chrome);
+            ProfilePage profilePage = new ProfilePage(browser);
+            profilePage.goToPage();
+            string beforeColor = profilePage.checkBorderColor(profilePage.creditButton());
+            string afterColor = profilePage.checkHoverBorderColor(profilePage.creditButton());
+            Assert.IsFalse(beforeColor == afterColor, "border color does not change on hover");
+        }
+        #endregion
     }
 }
