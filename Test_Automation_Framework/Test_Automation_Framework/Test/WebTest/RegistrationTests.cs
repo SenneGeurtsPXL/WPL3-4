@@ -22,8 +22,8 @@ namespace Test_Automation_Framework.Test.WebTest
         [SetUp]
         public void Setup()
         {
+            browser = DriverManager.Chrome;
             registrationPage = new RegistrationPage(browser);
-            loginPage = new LoginPage(browser);
         }
         [Test]
         public void RegistrationFormValidationError1()
