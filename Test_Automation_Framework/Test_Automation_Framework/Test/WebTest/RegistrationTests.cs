@@ -11,7 +11,7 @@ namespace Test_Automation_Framework.Test.WebTest
 {
     public class RegistrationTests
     {
-        private IWebDriver chrome = DriverManager.GetDriver(BrowserType.Edge);
+        IWebDriver browser;
         private RegistrationPage registrationPage;
         private LoginPage loginPage;
         private string firstName = "stage";
@@ -22,8 +22,8 @@ namespace Test_Automation_Framework.Test.WebTest
         [SetUp]
         public void Setup()
         {
-            registrationPage = new RegistrationPage(chrome);
-            loginPage = new LoginPage(chrome);
+            registrationPage = new RegistrationPage(browser);
+            loginPage = new LoginPage(browser);
         }
         [Test]
         public void RegistrationFormValidationError1()
@@ -54,8 +54,8 @@ namespace Test_Automation_Framework.Test.WebTest
         [TearDown]
         public void TearDown()
         {
-            chrome.Close();
-            chrome.Quit();
+            browser.Close();
+            browser.Quit();
         }
     }
 }
