@@ -25,7 +25,7 @@ namespace Test_Automation_Framework.Framework.POM
 
         public RegistrationPage(IWebDriver browser)
         {
-            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
+            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/register");
             browser.Navigate().Refresh();
             browser.Manage().Window.Maximize();
             browser.Navigate().Refresh();
@@ -38,6 +38,15 @@ namespace Test_Automation_Framework.Framework.POM
             RePasswordInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterRePassword")));
             RegisterButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterButtonComplete")));
             SignInLink = Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
+        }
+        public void Register(string firstName,string lastName,string email,string password,string rePassword)
+        {
+            FirstNameInputField.SendKeys(firstName);
+            LastNameInputField.SendKeys(lastName);
+            EmailInputField.SendKeys(email);
+            PasswordInputField.SendKeys(password);
+            RePasswordInputField.SendKeys(rePassword);
+            RegisterButton.Click();
         }
         public string GetValidationError()
         {

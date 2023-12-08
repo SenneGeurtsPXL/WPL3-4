@@ -33,17 +33,22 @@ namespace Test_Automation_Framework.Framework.Driver
 
             }
         }
-        public static IWebDriver GetDriver(BrowserType browserType)
+        public static IWebDriver GetDriver(string browserType)
         {
             switch (browserType)
             {
-                case BrowserType.Chrome:
+                case "chrome":
                     return DriverManager.Chrome;
-                case BrowserType.Edge:
+                case "edge":
                     return DriverManager.Edge;
                 default:
                     throw new ArgumentException("Invalid browser type");
             }
+        }
+        public static void CloseDriver(IWebDriver browser)
+        {
+            browser.Close();
+            browser.Quit();
         }
     }
 }
