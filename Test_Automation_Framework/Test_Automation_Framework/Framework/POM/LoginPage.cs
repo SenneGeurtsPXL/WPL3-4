@@ -22,21 +22,21 @@ namespace Test_Automation_Framework.Framework.POM
         public IWebElement ValidationError { get; set; }
         public IWebElement AdminButton { get; set; }
         public WebDriverWait Wait { get; set; }
-        public IWebDriver Driver { get; set; }
+        public IWebDriver driver { get; set; }
         public LoginPage(IWebDriver browser)
         {
-            Driver = browser;
-            Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
-            Driver.Manage().Window.Maximize();
-            Driver.Navigate().Refresh();
+            driver = browser;
+            driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
+            driver.Manage().Window.Maximize();
+            driver.Navigate().Refresh();
             Thread.Sleep(10000);
-            Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(60));
+            Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
             EmailInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInEmail")));
             PasswordInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInPassword")));
             LoginButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
             CreateAccountLink = Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
             SignInForm = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignIn")));
-            VisualBugDiv = Driver.FindElement(By.CssSelector("#SignIn > div:first-child"));
+            VisualBugDiv = driver.FindElement(By.CssSelector("#SignIn > div:first-child"));
 
             //ValidationError = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
         }
@@ -48,7 +48,7 @@ namespace Test_Automation_Framework.Framework.POM
         }
         public void GoToLogin()
         {
-            Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
+            driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
         }
         public string GetValidationError()
         {
@@ -62,7 +62,7 @@ namespace Test_Automation_Framework.Framework.POM
         public void ClickAdminButton()
         {
             Wait.Until(ExpectedConditions.ElementExists(By.TagName("a")));
-            IReadOnlyCollection<IWebElement> allAElements = Driver.FindElements(By.CssSelector("a"));
+            IReadOnlyCollection<IWebElement> allAElements = driver.FindElements(By.CssSelector("a"));
             foreach (var element in allAElements)
             {
                 Console.WriteLine("in de foreach");

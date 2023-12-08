@@ -21,12 +21,10 @@ namespace Test_Automation_Framework.Framework.POM
         public IWebElement SignInLink { get; set; }
         public IWebElement ValidationError { get; set; }
         public WebDriverWait Wait { get; set; }
-        public IWebDriver Driver { get; set; }
 
 
         public RegistrationPage(IWebDriver browser)
         {
-            Driver = browser;
             browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/register");
             browser.Navigate().Refresh();
             browser.Manage().Window.Maximize();
