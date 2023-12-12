@@ -14,12 +14,16 @@ namespace Test_Automation_Framework.Framework.POM
     public class ProfilePage
     {
         private static IWebDriver browser;
+        private WaitManager waitManager;
         private WebDriverWait wait;
+
         public ProfilePage(IWebDriver driver)
         {
             browser = driver;
-            wait = new WebDriverWait(browser, TimeSpan.FromSeconds(60));
+            waitManager = new WaitManager(browser, 60);
+            wait = waitManager.Wait;
         }
+
         public void goToPage()
         {
             browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
@@ -28,7 +32,7 @@ namespace Test_Automation_Framework.Framework.POM
             browser.Manage().Window.Maximize();
 
             browser.Navigate().Refresh();
-            Thread.Sleep(10000);
+            waitManager.waitOnLoadingScreen();
 
             IWebElement signInButton = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
             signInButton.Click();
@@ -38,15 +42,18 @@ namespace Test_Automation_Framework.Framework.POM
             userName.SendKeys("stageadmin@stageadmin.stageadmin");
             paswoord.SendKeys("StageAdmin0221!");
 
-            IWebElement signInButtonComplete = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
+            IWebElement signInButtonComplete =
+                wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
             signInButtonComplete.Click();
-            
-            IWebElement profileButton = wait.Until(ExpectedConditions.ElementExists(By.CssSelector("a[href='#/profile'] button#OrdersPageButton")));
+
+            IWebElement profileButton =
+                wait.Until(ExpectedConditions.ElementExists(
+                    By.CssSelector("a[href='#/profile'] button#OrdersPageButton")));
             profileButton.Click();
 
-            Thread.Sleep(2000);
+            Thread.Sleep(500);
         }
-        
+
         public IReadOnlyCollection<IWebElement> getAllPElements()
         {
             wait.Until(ExpectedConditions.ElementExists(By.TagName("p")));
@@ -54,7 +61,6 @@ namespace Test_Automation_Framework.Framework.POM
             return paragraphElements;
         }
 
-        
 
         public IWebElement creditButton()
         {
@@ -67,6 +73,7 @@ namespace Test_Automation_Framework.Framework.POM
                     return button;
                 }
             }
+
             return null;
         }
 
@@ -83,7 +90,7 @@ namespace Test_Automation_Framework.Framework.POM
         public string getCredits()
         {
             browser.Navigate().Refresh();
-            Thread.Sleep(6000);
+            waitManager.waitOnLoadingScreen();
             var allPElements = getAllPElements();
             var lastElement = allPElements.LastOrDefault();
             return lastElement.Text;
@@ -93,11 +100,31 @@ namespace Test_Automation_Framework.Framework.POM
         {
             return button.GetCssValue("border-color");
         }
+
         public string checkHoverBorderColor(IWebElement button)
         {
             var action = new Actions(browser);
             action.MoveToElement(button).Perform();
             return button.GetCssValue("border-color");
+        }
+
+        //gets the loading screen, to be moved somewhere else
+        public IWebElement loadingScreen()
+        {
+            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
+            Thread.Sleep(500);
+            browser.Navigate().Refresh();
+            browser.Manage().Window.Maximize();
+            try
+            {
+                IWebElement loadingScreen =
+                    wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div.css-1yo793j img.css-1pma2px")));
+                return loadingScreen;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
