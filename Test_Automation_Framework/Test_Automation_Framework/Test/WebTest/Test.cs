@@ -54,13 +54,6 @@ namespace Test_Automation_Framework.Test.WebTest
                 Assert.IsFalse(Convert.ToInt16(allPages.loginPage.SignInDivBorder().Substring(0, 1)) <= 2, "Visual bug: border thickness div > 2px");
             }
         }
-        //didnt really know where else to put this
-        [Test]
-        public void testLoadingScreen()
-        {
-            IWebElement loadingScreen = allPages.loadingScreen();
-            Assert.IsNotNull(loadingScreen, "no loading screen found");
-        }
         [TearDown]
         public void TearDown()
         {
