@@ -11,54 +11,55 @@ namespace Test_Automation_Framework.Test.WebTest
 {
     public class LoginTests
     {
-        private AllPages AllPages;
-        private readonly string[] Emails = { "stage@stage.stage", "wrongmail.aze", "stage@stage.stage", "stage@stage.stage" };
-        private readonly string[] Passwords = { "Wrongpassword", "aze", "Stage0221!Stage0221!", "Stage0221!" };
+        private AllPages allPages;
+        private string[] emails = { "stage@stage.stage", "wrongmail.aze", "stage@stage.stage", "stage@stage.stage" };
+        private string[] passwords = { "Wrongpassword", "aze", "Stage0221!Stage0221!", "Stage0221!" };
 
         [SetUp]
         public void setup()
         {
-            AllPages = new AllPages();
+            allPages = new AllPages();
         }
         [Test]
         public void LoginFormValidationError1()
         {
             //VOOR VOLGENDE WOENSDAG
-            AllPages.LoginPage.Login(Emails[0], Passwords[0]);
-            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Email or password incorrect.");
+            allPages.LoginPage.Login(emails[0], passwords[0]);
+            Assert.IsTrue(allPages.LoginPage.GetValidationError() == "Email or password incorrect.");
         }
         [Test]
         public void LoginFormValidationError2()
         {
-            AllPages.LoginPage.Login(Emails[1], Passwords[1]);
-            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Please fill in a correct email-adress.");
+            allPages.LoginPage.Login(emails[1], passwords[1]);
+            Assert.IsTrue(allPages.LoginPage.GetValidationError() == "Please fill in a correct email-adress.");
         }
         [Test]
         public void LoginFormValidationError3()
         {
-            AllPages.LoginPage.Login(Emails[2], Passwords[2]);
-            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Email or password incorrect.");
+            allPages.LoginPage.Login(emails[2], passwords[2]);
+            Assert.IsTrue(allPages.LoginPage.GetValidationError() == "Email or password incorrect.");
         }
         [Test]
         public void LoginFormValidationError4()
         {
-            AllPages.LoginPage.Login(Emails[3], Passwords[3]);
+            allPages.LoginPage.Login(emails[3], passwords[3]);
         }
 
         [Test]
         public void TinyVisualBug()
         {
-            AllPages.LoginPage.GoToLoginPage();
-            if (Convert.ToInt16(AllPages.LoginPage.SignInDivBorder().Substring(0, 1)) <= 2)
+            allPages.LoginPage.GoToLoginPage();
+            if (Convert.ToInt16(allPages.LoginPage.SignInDivBorder().Substring(0, 1)) <= 2)
             {
-                Console.WriteLine(AllPages.LoginPage.SignInDivBorder().Substring(0, 1));
-                Assert.IsFalse(Convert.ToInt16(AllPages.LoginPage.SignInDivBorder().Substring(0, 1)) <= 2, "Visual bug: border thickness div > 2px");
+                Console.WriteLine(allPages.LoginPage.SignInDivBorder().Substring(0, 1));
+                Assert.IsFalse(Convert.ToInt16(allPages.LoginPage.SignInDivBorder().Substring(0, 1)) <= 2, "Visual bug: border thickness div > 2px");
             }
         }
         [TearDown]
         public void TearDown()
         {
-            AllPages.CloseBrowser();
+            allPages.Browser.Close();
+            allPages.Browser.Quit();
         }
     }
 }

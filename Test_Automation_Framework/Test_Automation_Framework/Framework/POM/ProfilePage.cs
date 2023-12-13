@@ -13,41 +13,43 @@ namespace Test_Automation_Framework.Framework.POM
 {
     public class ProfilePage
     {
-        private static IWebDriver Driver;
-        private WaitManager WaitManager;
-        private WebDriverWait Wait;
+        private static IWebDriver browser;
+        private WaitManager waitManager;
+        private WebDriverWait wait;
+        private ConfigReader ConfigFile;
 
-        public ProfilePage(IWebDriver browser,WaitManager waitManager)
+        public ProfilePage()
         {
-            Driver = browser;
-            WaitManager = waitManager;
-            Wait = waitManager.Wait;
+            ConfigFile = new ConfigReader();
+            browser = DriverManager.GetDriver(ConfigFile.BrowserType);
+            waitManager = new WaitManager(browser, ConfigFile.WaitTime);
+            wait = waitManager.Wait;
         }
 
         public void goToPage()
         {
-            Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
+            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
             Thread.Sleep(500);
-            Driver.Navigate().Refresh();
-            Driver.Manage().Window.Maximize();
+            browser.Navigate().Refresh();
+            browser.Manage().Window.Maximize();
 
-            Driver.Navigate().Refresh();
-            WaitManager.WaitOnLoadingScreen();
+            browser.Navigate().Refresh();
+            waitManager.WaitOnLoadingScreen();
 
-            IWebElement signInButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
+            IWebElement signInButton = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
             signInButton.Click();
 
-            IWebElement userName = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInEmail")));
-            IWebElement paswoord = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInPassword")));
+            IWebElement userName = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInEmail")));
+            IWebElement paswoord = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInPassword")));
             userName.SendKeys("stageadmin@stageadmin.stageadmin");
             paswoord.SendKeys("StageAdmin0221!");
 
             IWebElement signInButtonComplete =
-                Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
+                wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
             signInButtonComplete.Click();
 
             IWebElement profileButton =
-                Wait.Until(ExpectedConditions.ElementExists(
+                wait.Until(ExpectedConditions.ElementExists(
                     By.CssSelector("a[href='#/profile'] button#OrdersPageButton")));
             profileButton.Click();
 
@@ -56,16 +58,16 @@ namespace Test_Automation_Framework.Framework.POM
 
         public IReadOnlyCollection<IWebElement> getAllPElements()
         {
-            Wait.Until(ExpectedConditions.ElementExists(By.TagName("p")));
-            IReadOnlyCollection<IWebElement> paragraphElements = Driver.FindElements(By.TagName("p"));
+            wait.Until(ExpectedConditions.ElementExists(By.TagName("p")));
+            IReadOnlyCollection<IWebElement> paragraphElements = browser.FindElements(By.TagName("p"));
             return paragraphElements;
         }
 
 
         public IWebElement creditButton()
         {
-            Wait.Until(ExpectedConditions.ElementExists(By.TagName("button")));
-            IReadOnlyCollection<IWebElement> allButtons = Driver.FindElements(By.TagName("button"));
+            wait.Until(ExpectedConditions.ElementExists(By.TagName("button")));
+            IReadOnlyCollection<IWebElement> allButtons = browser.FindElements(By.TagName("button"));
             foreach (var button in allButtons)
             {
                 if (button.Text.ToLower().Contains("add credits"))
@@ -81,16 +83,16 @@ namespace Test_Automation_Framework.Framework.POM
         {
             IWebElement button = creditButton();
             creditButton().Click();
-            IWebElement creditfield = Driver.FindElement(By.Name("amount"));
+            IWebElement creditfield = browser.FindElement(By.Name("amount"));
             creditfield.SendKeys(credits.ToString());
-            IWebElement buttonBuy = Driver.FindElement(By.XPath("//button[text()='buy']"));
+            IWebElement buttonBuy = browser.FindElement(By.XPath("//button[text()='buy']"));
             buttonBuy.Click();
         }
 
         public string getCredits()
         {
-            Driver.Navigate().Refresh();
-            WaitManager.WaitOnLoadingScreen();
+            browser.Navigate().Refresh();
+            waitManager.WaitOnLoadingScreen();
             var allPElements = getAllPElements();
             var lastElement = allPElements.LastOrDefault();
             return lastElement.Text;
@@ -103,7 +105,7 @@ namespace Test_Automation_Framework.Framework.POM
 
         public string checkHoverBorderColor(IWebElement button)
         {
-            var action = new Actions(Driver);
+            var action = new Actions(browser);
             action.MoveToElement(button).Perform();
             return button.GetCssValue("border-color");
         }
@@ -111,14 +113,14 @@ namespace Test_Automation_Framework.Framework.POM
         //gets the loading screen, to be moved somewhere else
         public IWebElement loadingScreen()
         {
-            Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
+            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
             Thread.Sleep(500);
-            Driver.Navigate().Refresh();
-            Driver.Manage().Window.Maximize();
+            browser.Navigate().Refresh();
+            browser.Manage().Window.Maximize();
             try
             {
                 IWebElement loadingScreen =
-                    Wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div.css-1yo793j img.css-1pma2px")));
+                    wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div.css-1yo793j img.css-1pma2px")));
                 return loadingScreen;
             }
             catch

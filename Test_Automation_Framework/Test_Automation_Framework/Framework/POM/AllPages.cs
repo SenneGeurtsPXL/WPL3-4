@@ -14,7 +14,6 @@ namespace Test_Automation_Framework.Framework.POM
         public LoginPage LoginPage { get; set; }
         public RegistrationPage RegistrationPage { get; set; }
         public AdminPage AdminPage { get; set; }
-        public ProfilePage ProfilePage { get; set; }
         public WaitManager Wait { get; set; }
         public ConfigReader ConfigFile { get; set; }
         public IWebDriver Browser { get; set; }
@@ -28,7 +27,6 @@ namespace Test_Automation_Framework.Framework.POM
             RegistrationPage = new RegistrationPage(Browser, Wait);
             LoginPage = new LoginPage(Browser, Wait);
             AdminPage = new AdminPage(Browser, Wait);
-            ProfilePage = new ProfilePage(Browser, Wait);
         }
         public IWebElement LoadingScreen()
         {
@@ -46,11 +44,6 @@ namespace Test_Automation_Framework.Framework.POM
             {
                 return null;
             }
-        }
-        public void CloseBrowser()
-        {
-            Browser.Close();
-            Browser.Quit();
         }
     }
 }
