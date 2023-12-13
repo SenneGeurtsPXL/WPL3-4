@@ -33,7 +33,8 @@ namespace Test_Automation_Framework.Framework.POM
         {
             Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
             Driver.Manage().Window.Maximize();
-            Driver.Navigate().Refresh();
+            Wait.ConfirmPageLoaded();
+
         }
         public void GetElements()
         {

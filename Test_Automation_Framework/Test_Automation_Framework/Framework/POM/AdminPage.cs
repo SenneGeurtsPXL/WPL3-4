@@ -6,22 +6,38 @@ using System.Text;
 using System.Threading.Tasks;
 using SeleniumExtras.WaitHelpers;
 using Test_Automation_Framework.Framework.Driver;
+using OpenQA.Selenium.Support.UI;
+using System.Xml.Linq;
 
 namespace Test_Automation_Framework.Framework.POM
 {
     public class AdminPage
     {
-        private WaitManager waitManager;
-        IWebDriver driver;
-        public ConfigReader ConfigFile { get; set; }
-        public AdminPage() 
+        public WaitManager Wait;
+        public IWebDriver Browser { get; set; }
+        public IWebDriver Driver;
+        public IWebElement Table { get; set; }
+        public AdminPage(IWebDriver browser,WaitManager wait) 
         {
-            driver = DriverManager.GetDriver(ConfigFile.BrowserType);
-            waitManager = new WaitManager(driver, ConfigFile.WaitTime);
+            Driver = browser;
+            Wait = wait;
         }
-        public void GoToUsers()
+        public void GoToUsersTab()
         {
-            driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/admin/users");
+            Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/admin/users");
+        }
+        public void GetAllUsers() {
+            Wait.Wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id=\"root\"]/div/div[2]/div[3]/div/main/div[2]/div/tbody/tr[1]/th")));
+            IReadOnlyCollection<IWebElement> allTrElements = Driver.FindElements(By.TagName("tr"));
+            IWebElement Email = allTrElements.Last().FindElement(By.CssSelector(":nth-child(4)"));
+        }
+        public void DeleteLastCreatedUser()
+        {
+            Wait.Wait.Until(ExpectedConditions.ElementExists(By.XPath("//*[@id=\"root\"]/div/div[2]/div[3]/div/main/div[2]/div/tbody/tr[1]/th")));
+
+            IReadOnlyCollection<IWebElement> allSvgElements = Driver.FindElements(By.TagName("svg"));
+            IWebElement Svg = allSvgElements.Last();
+            Svg.Click();
         }
     }
 }

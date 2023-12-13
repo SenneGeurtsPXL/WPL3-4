@@ -13,24 +13,27 @@ namespace Test_Automation_Framework.Framework.POM
     {
         public LoginPage LoginPage { get; set; }
         public RegistrationPage RegistrationPage { get; set; }
-        public IWebDriver browser { get; set; }
+        public AdminPage AdminPage { get; set; }
         public WaitManager Wait { get; set; }
         public ConfigReader ConfigFile { get; set; }
+        public IWebDriver Browser { get; set; }
+
         public AllPages()
         {
             ConfigFile = new ConfigReader();
-            browser = DriverManager.GetDriver(ConfigFile.BrowserType);
-            Wait = new WaitManager(browser,ConfigFile.WaitTime);
+            Browser = DriverManager.GetDriver(ConfigFile.BrowserType);
+            Wait = new WaitManager(Browser, ConfigFile.WaitTime);
 
-            RegistrationPage = new RegistrationPage(browser, Wait);
-            LoginPage = new LoginPage(browser,Wait);
+            RegistrationPage = new RegistrationPage(Browser, Wait);
+            LoginPage = new LoginPage(Browser, Wait);
+            AdminPage = new AdminPage(Browser, Wait);
         }
         public IWebElement LoadingScreen()
         {
-            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
+            Browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
             Thread.Sleep(500);
-            browser.Navigate().Refresh();
-            browser.Manage().Window.Maximize();
+            Browser.Navigate().Refresh();
+            Browser.Manage().Window.Maximize();
             try
             {
                 IWebElement loadingScreen =

@@ -27,5 +27,21 @@ namespace Test_Automation_Framework.Framework.Driver
             Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
             Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));
         }
+        public void ConfirmPageLoaded()
+        {
+            try
+            {
+                IWebElement loadingScreen = Driver.FindElement(By.CssSelector("div.css-1yo793j img.css-1pma2px"));
+                while (loadingScreen == null)
+                {
+                    Driver.Navigate().Refresh();
+                }
+            }
+            catch (Exception)
+            {
+
+                Driver.Navigate().Refresh();
+            }
+        }
     }
 }

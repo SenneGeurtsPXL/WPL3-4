@@ -58,8 +58,8 @@ namespace Test_Automation_Framework.Test.WebTest
         [TearDown]
         public void TearDown()
         {
-            allPages.browser.Close();
-            allPages.browser.Quit();
+            allPages.Browser.Close();
+            allPages.Browser.Quit();
         }
     }
 }

@@ -40,11 +40,13 @@ namespace Test_Automation_Framework.Framework.POM
         public void GoToRegistrationPage()
         {
             Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/register");
-            Wait.WaitOnLoadingScreen();
+            Driver.Manage().Window.Maximize();
+            Wait.ConfirmPageLoaded();
         }
         public void Register(string firstName,string lastName,string email,string password,string rePassword)
         {
             GoToRegistrationPage();
+            Wait.WaitOnLoadingScreen();
             GetElements();
             FirstNameInputField.SendKeys(firstName);
             LastNameInputField.SendKeys(lastName);
