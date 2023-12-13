@@ -21,9 +21,9 @@ namespace Test_Automation_Framework.Framework.POM
         public IWebElement SignInDiv { get; set; }
         public IWebElement ValidationError { get; set; }
         public IWebElement AdminButton { get; set; }
-        public WebDriverWait Wait { get; set; }
+        public WaitManager Wait { get; set; }
         public IWebDriver Driver { get; set; }
-        public LoginPage(IWebDriver browser, WebDriverWait wait)
+        public LoginPage(IWebDriver browser, WaitManager wait)
         {
             Driver = browser;
             Wait = wait;
@@ -34,21 +34,20 @@ namespace Test_Automation_Framework.Framework.POM
             Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/login");
             Driver.Manage().Window.Maximize();
             Driver.Navigate().Refresh();
-            Thread.Sleep(10000);
         }
         public void GetElements()
         {
-            EmailInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInEmail")));
-            PasswordInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInPassword")));
-            LoginButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
-            CreateAccountLink = Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
-            SignInForm = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignIn")));
+            EmailInputField = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInEmail")));
+            PasswordInputField = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInPassword")));
+            LoginButton = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
+            CreateAccountLink = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
+            SignInForm = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("SignIn")));
             VisualBugDiv = Driver.FindElement(By.CssSelector("#SignIn > div:first-child"));
         }
         public void Login(string email, string password)
         {
             GoToLoginPage();
-            Thread.Sleep(2000);
+            Wait.WaitOnLoadingScreen();
             GetElements();
             EmailInputField.SendKeys(email);
             PasswordInputField.SendKeys(password);
@@ -57,7 +56,7 @@ namespace Test_Automation_Framework.Framework.POM
         public void LoginAsAdmin()
         {
             GoToLoginPage();
-            Thread.Sleep(2000);
+            Wait.WaitOnLoadingScreen();
             GetElements();
             EmailInputField.SendKeys("Stage@stage.stage");
             PasswordInputField.SendKeys("Stage0221!");
@@ -65,7 +64,7 @@ namespace Test_Automation_Framework.Framework.POM
         }
         public string GetValidationError()
         {
-            ValidationError = Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
+            ValidationError = Wait.Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
             return ValidationError.Text;
         }
         public string SignInDivBorder()
@@ -75,7 +74,7 @@ namespace Test_Automation_Framework.Framework.POM
         }
         public void ClickAdminButton()
         {
-            AdminButton = Wait.Until(ExpectedConditions.ElementExists(By.CssSelector("a[href='#/admin/bugs']")));
+            AdminButton = Wait.Wait.Until(ExpectedConditions.ElementExists(By.CssSelector("a[href='#/admin/bugs']")));
             AdminButton.Click();
         }
     }

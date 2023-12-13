@@ -22,10 +22,10 @@ namespace Test_Automation_Framework.Framework.POM
             browser = DriverManager.GetDriver(ConfigFile.BrowserType);
             Wait = new WaitManager(browser,ConfigFile.WaitTime);
 
-            RegistrationPage = new RegistrationPage(browser,Wait.Wait);
-            LoginPage = new LoginPage(browser,Wait.Wait);
+            RegistrationPage = new RegistrationPage(browser, Wait);
+            LoginPage = new LoginPage(browser,Wait);
         }
-        public IWebElement loadingScreen()
+        public IWebElement LoadingScreen()
         {
             browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
             Thread.Sleep(500);

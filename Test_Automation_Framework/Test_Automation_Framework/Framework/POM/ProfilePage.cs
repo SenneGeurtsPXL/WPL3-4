@@ -32,7 +32,7 @@ namespace Test_Automation_Framework.Framework.POM
             browser.Manage().Window.Maximize();
 
             browser.Navigate().Refresh();
-            waitManager.waitOnLoadingScreen();
+            waitManager.WaitOnLoadingScreen();
 
             IWebElement signInButton = wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
             signInButton.Click();
@@ -90,7 +90,7 @@ namespace Test_Automation_Framework.Framework.POM
         public string getCredits()
         {
             browser.Navigate().Refresh();
-            waitManager.waitOnLoadingScreen();
+            waitManager.WaitOnLoadingScreen();
             var allPElements = getAllPElements();
             var lastElement = allPElements.LastOrDefault();
             return lastElement.Text;

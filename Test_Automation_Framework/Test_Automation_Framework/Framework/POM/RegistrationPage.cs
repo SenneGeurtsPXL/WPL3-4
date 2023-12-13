@@ -20,29 +20,27 @@ namespace Test_Automation_Framework.Framework.POM
         public IWebElement RegisterButton { get; set; }
         public IWebElement SignInLink { get; set; }
         public IWebElement ValidationError { get; set; }
-        public WebDriverWait Wait { get; set; }
+        public WaitManager Wait { get; set; }
         public IWebDriver Driver { get; set; }
-        public RegistrationPage(IWebDriver browser, WebDriverWait wait)
+        public RegistrationPage(IWebDriver browser, WaitManager wait)
         {
             Driver = browser;
             Wait = wait;
         }
         public void GetElements()
         {
-            FirstNameInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterFirstName")));
-            LastNameInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterLastName")));
-            EmailInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterEmail")));
-            PasswordInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterPassword")));
-            RePasswordInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterRePassword")));
-            RegisterButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterButtonComplete")));
-            SignInLink = Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
+            FirstNameInputField = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterFirstName")));
+            LastNameInputField = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterLastName")));
+            EmailInputField = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterEmail")));
+            PasswordInputField = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterPassword")));
+            RePasswordInputField = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterRePassword")));
+            RegisterButton = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterButtonComplete")));
+            SignInLink = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
         }
         public void GoToRegistrationPage()
         {
             Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/register");
-            Driver.Manage().Window.Maximize();
-            Driver.Navigate().Refresh();
-            Thread.Sleep(10000);
+            Wait.WaitOnLoadingScreen();
         }
         public void Register(string firstName,string lastName,string email,string password,string rePassword)
         {
@@ -57,7 +55,7 @@ namespace Test_Automation_Framework.Framework.POM
         }
         public string GetValidationError()
         {
-            ValidationError = Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
+            ValidationError = Wait.Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
             return ValidationError.Text;
 
         }

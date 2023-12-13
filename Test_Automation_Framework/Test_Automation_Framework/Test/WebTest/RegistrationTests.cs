@@ -40,9 +40,7 @@ namespace Test_Automation_Framework.Test.WebTest
             //registrationPage.Register(firstName, lastName, emails[1], password, rePasswords[1]);
             allPages.LoginPage.LoginAsAdmin();
             Thread.Sleep(3000);
-            Console.WriteLine("clikc button");
             allPages.LoginPage.ClickAdminButton();
-            Console.WriteLine("clikc button gedaan");
             Thread.Sleep(3000);
         }
         [TearDown]

@@ -14,12 +14,15 @@ namespace Test_Automation_Framework.Framework.Driver
     public class WaitManager
     {
         public WebDriverWait Wait { get; set; }
+        public IWebDriver Driver { get; set; }
         public WaitManager(IWebDriver driver,int timespanInSeconds)
         {
+            Driver = driver;
             Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timespanInSeconds));
         }
-        public void waitOnLoadingScreen()
+        public void WaitOnLoadingScreen()
         {
+            Driver.Navigate().Refresh();
             string cssSelector = "div.css-1yo793j";
             Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
             Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));
