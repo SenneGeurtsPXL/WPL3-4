@@ -53,5 +53,4 @@ namespace Test_Automation_Framework.Framework.POM
             Browser.Quit();
         }
     }
-    }
 }

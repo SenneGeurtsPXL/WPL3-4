@@ -66,7 +66,15 @@ namespace Test_Automation_Framework.Framework.POM
         public string GetValidationError()
         {
             ValidationError = Wait.Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
-            return ValidationError.Text;
+            if (ValidationError.Text != "")
+            {
+                return ValidationError.Text;
+
+            }
+            else
+            {
+                return "No validation error on login from";
+            }
         }
         public string SignInDivBorder()
         {
@@ -77,6 +85,22 @@ namespace Test_Automation_Framework.Framework.POM
         {
             AdminButton = Wait.Wait.Until(ExpectedConditions.ElementExists(By.CssSelector("a[href='#/admin/bugs']")));
             AdminButton.Click();
+        }
+        public bool HasIsRequiredType()
+        {
+            bool isRequired = EmailInputField.GetAttribute("required") != null;
+
+            if (isRequired)
+            {
+                Console.WriteLine("The input has the 'required' attribute.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("The input does not have the 'required' attribute.");
+                return false;
+
+            }
         }
     }
 }
