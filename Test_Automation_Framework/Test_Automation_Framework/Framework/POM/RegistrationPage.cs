@@ -21,16 +21,14 @@ namespace Test_Automation_Framework.Framework.POM
         public IWebElement SignInLink { get; set; }
         public IWebElement ValidationError { get; set; }
         public WebDriverWait Wait { get; set; }
-
-
-        public RegistrationPage(IWebDriver browser)
+        public IWebDriver Driver { get; set; }
+        public RegistrationPage(IWebDriver browser, WebDriverWait wait)
         {
-            browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/register");
-            browser.Navigate().Refresh();
-            browser.Manage().Window.Maximize();
-            browser.Navigate().Refresh();
-            Thread.Sleep(10000);
-            Wait = new WebDriverWait(browser, TimeSpan.FromSeconds(60));
+            Driver = browser;
+            Wait = wait;
+        }
+        public void GetElements()
+        {
             FirstNameInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterFirstName")));
             LastNameInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterLastName")));
             EmailInputField = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterEmail")));
@@ -39,8 +37,17 @@ namespace Test_Automation_Framework.Framework.POM
             RegisterButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("RegisterButtonComplete")));
             SignInLink = Wait.Until(ExpectedConditions.ElementExists(By.Id("GoToRegister")));
         }
+        public void GoToRegistrationPage()
+        {
+            Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/register");
+            Driver.Manage().Window.Maximize();
+            Driver.Navigate().Refresh();
+            Thread.Sleep(10000);
+        }
         public void Register(string firstName,string lastName,string email,string password,string rePassword)
         {
+            GoToRegistrationPage();
+            GetElements();
             FirstNameInputField.SendKeys(firstName);
             LastNameInputField.SendKeys(lastName);
             EmailInputField.SendKeys(email);

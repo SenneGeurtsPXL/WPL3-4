@@ -10,8 +10,8 @@ namespace Test_Automation_Framework.Framework.POM
 {
     public class AllPages
     {
-        public TestPage page { get; set; }
-        public LoginPage loginPage { get; set; }
+        public LoginPage LoginPage { get; set; }
+        public RegistrationPage RegistrationPage { get; set; }
         public IWebDriver browser { get; set; }
         public WaitManager Wait { get; set; }
         public ConfigReader ConfigFile { get; set; }
@@ -20,8 +20,9 @@ namespace Test_Automation_Framework.Framework.POM
             ConfigFile = new ConfigReader();
             browser = DriverManager.GetDriver(ConfigFile.BrowserType);
             Wait = new WaitManager(browser,ConfigFile.WaitTime);
-            page = new TestPage(browser,Wait.Wait);
-            loginPage = new LoginPage(browser);
+
+            RegistrationPage = new RegistrationPage(browser,Wait.Wait);
+            LoginPage = new LoginPage(browser,Wait.Wait);
         }
     }
 }

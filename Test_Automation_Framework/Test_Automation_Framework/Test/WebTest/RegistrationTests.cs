@@ -11,9 +11,7 @@ namespace Test_Automation_Framework.Test.WebTest
 {
     public class RegistrationTests
     {
-        IWebDriver browser;
-        private RegistrationPage registrationPage;
-        private LoginPage loginPage;
+        private AllPages allPages;
         private string firstName = "stage";
         private string lastName = "stage";
         private string[] emails = { "random@random.random" , "stage@stage.stage" , "stage23@stage23.stage23" };
@@ -22,40 +20,36 @@ namespace Test_Automation_Framework.Test.WebTest
         [SetUp]
         public void Setup()
         {
-            registrationPage = new RegistrationPage(browser);
-            loginPage = new LoginPage(browser);
+            allPages = new AllPages();
         }
         [Test]
         public void RegistrationFormValidationError1()
         {
-            registrationPage.Register(firstName, lastName, emails[0], password, rePasswords[0]);
-            Assert.True(registrationPage.GetValidationError() == "Passwords don't match.");
+            allPages.RegistrationPage.Register(firstName, lastName, emails[0], password, rePasswords[0]);
+            Assert.True(allPages.RegistrationPage.GetValidationError() == "Passwords don't match.");
         }
         [Test]
         public void RegistrationFormValidationError2()
         {
-            registrationPage.Register(firstName, lastName, emails[1], password, rePasswords[1]);
-            Assert.True(registrationPage.GetValidationError() == "Account is already registered.");
-            //commentaar schrijven
-            //loggen
-            //zoveel mogelijk foutieve dingen ingeven spaties komma's en al
-            //wait moet een global zijn
-            //allpages aanmaken
-            //config files met default settings
-            //stream reader maken en al de deafult data
-            //close en quit global maken
-
+            allPages.RegistrationPage.Register(firstName, lastName, emails[1], password, rePasswords[1]);
+            Assert.True(allPages.RegistrationPage.GetValidationError() == "Account is already registered.");
         }
         [Test]  
         public void RegistrationFormValidationError3()
         {
             //registrationPage.Register(firstName, lastName, emails[1], password, rePasswords[1]);
+            allPages.LoginPage.LoginAsAdmin();
+            Thread.Sleep(3000);
+            Console.WriteLine("clikc button");
+            allPages.LoginPage.ClickAdminButton();
+            Console.WriteLine("clikc button gedaan");
+            Thread.Sleep(3000);
         }
         [TearDown]
         public void TearDown()
         {
-            browser.Close();
-            browser.Quit();
+            allPages.browser.Close();
+            allPages.browser.Quit();
         }
     }
 }
