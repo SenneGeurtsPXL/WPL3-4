@@ -49,8 +49,7 @@ namespace Test_Automation_Framework.Test.WebTest
         [TearDown]
         public void TearDown()
         {
-            AllPages.Browser.Close();
-            AllPages.Browser.Quit();
+            AllPages.CloseBrowser();
         }
     }
 }
