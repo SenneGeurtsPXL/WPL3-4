@@ -16,11 +16,13 @@ namespace Test_Automation_Framework.Framework.POM
         private static IWebDriver browser;
         private WaitManager waitManager;
         private WebDriverWait wait;
+        private ConfigReader ConfigFile;
 
-        public ProfilePage(IWebDriver driver)
+        public ProfilePage()
         {
-            browser = driver;
-            waitManager = new WaitManager(browser, 60);
+            ConfigFile = new ConfigReader();
+            browser = DriverManager.GetDriver(ConfigFile.BrowserType);
+            waitManager = new WaitManager(browser, ConfigFile.WaitTime);
             wait = waitManager.Wait;
         }
 
@@ -125,6 +127,30 @@ namespace Test_Automation_Framework.Framework.POM
             {
                 return null;
             }
+        }
+        public string getFirstName()
+        {
+            var allPElements = getAllPElements();
+            bool foundFirstName = false;
+            foreach (var element in allPElements)
+            {
+                if (foundFirstName)
+                {
+                    string text = element.Text;
+                    if (text == "LASTNAME:")
+                    {
+                        return null;
+                    }
+                    return text;
+                }
+        
+                if (element.Text == "FIRSTNAME:")
+                {
+                    foundFirstName = true;
+                }
+            }
+    
+            return null;
         }
     }
 }

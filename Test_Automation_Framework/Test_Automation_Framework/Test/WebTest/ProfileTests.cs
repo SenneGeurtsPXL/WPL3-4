@@ -13,13 +13,13 @@ public class ProfileTests
     public void setup()
     {
         browser = DriverManager.Chrome;
-        profilePage = new ProfilePage(browser);
+        profilePage = new ProfilePage();
+        profilePage.goToPage();
     }
 
     [Test]
     public void testAllInfoDisplayed()
     {
-        profilePage.goToPage();
         IReadOnlyCollection<IWebElement> elements = profilePage.getAllPElements();
         Assert.IsTrue(elements.Count >= 9, "not enough elements");
     }
@@ -27,7 +27,6 @@ public class ProfileTests
     [Test]
     public void testbutton()
     {
-        profilePage.goToPage();
         IWebElement button = profilePage.creditButton();
         Assert.IsNotNull(button, "no credit button found");
     }
@@ -35,7 +34,6 @@ public class ProfileTests
     [Test]
     public void testCredits()
     {
-        profilePage.goToPage();
         string firstAmount = profilePage.getCredits();
         profilePage.addCredits(15);
         Thread.Sleep(1000);
@@ -47,21 +45,32 @@ public class ProfileTests
     [Test]
     public void testNegativeCredits()
     {
-        profilePage.goToPage();
         string firstAmount = profilePage.getCredits();
         profilePage.addCredits(-15);
         Thread.Sleep(1000);
         string secondAmount = profilePage.getCredits();
         Assert.IsFalse(int.Parse(secondAmount) < int.Parse(firstAmount), "Negative credits can be added");
     }
+    [Test]
+    public void testLoadingScreen()
+    {
+        IWebElement loadingScreen = profilePage.loadingScreen();
+        Assert.IsNotNull(loadingScreen, "no loading screen found");
+    }
 
     [Test]
     public void testButtonHover()
     {
-        profilePage.goToPage();
         string beforeColor = profilePage.checkBorderColor(profilePage.creditButton());
         string afterColor = profilePage.checkHoverBorderColor(profilePage.creditButton());
         Assert.IsFalse(beforeColor == afterColor, "border color does not change on hover");
+    }
+
+    [Test]
+    public void testFirstName()
+    {
+        string firstName = profilePage.getFirstName();
+        Assert.IsNotNull(firstName, "404 the first name is not found");
     }
 
     //also would need to be moved
