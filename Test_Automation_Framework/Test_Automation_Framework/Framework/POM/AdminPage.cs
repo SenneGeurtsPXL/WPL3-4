@@ -4,15 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SeleniumExtras.WaitHelpers;
+using Test_Automation_Framework.Framework.Driver;
 
 namespace Test_Automation_Framework.Framework.POM
 {
     public class AdminPage
     {
+        private WaitManager waitManager;
         IWebDriver driver;
-        public AdminPage(IWebDriver browser) 
+        public ConfigReader ConfigFile { get; set; }
+        public AdminPage() 
         {
-            driver = browser;
+            driver = DriverManager.GetDriver(ConfigFile.BrowserType);
+            waitManager = new WaitManager(driver, ConfigFile.WaitTime);
         }
         public void GoToUsers()
         {
