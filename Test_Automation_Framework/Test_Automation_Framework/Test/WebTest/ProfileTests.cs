@@ -10,6 +10,7 @@ public class ProfileTests
     [SetUp]
     public void setup()
     {
+        //senne dit is de juiste
         AllPages = new AllPages();
         AllPages.ProfilePage.goToPage();
     }
