@@ -22,8 +22,11 @@ namespace Test_Automation_Framework.Framework.Driver
         }
         public void WaitOnLoadingScreen()
         {
+            //refreshen voor als er een wit scherm is
             Driver.Navigate().Refresh();
+            //css selector voor de loading screen
             string cssSelector = "div.css-1yo793j";
+            //wachten tot loading screen zichtbaar is en dan wachten tot het niet meer zichtbaar is
             Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
             Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));
         }

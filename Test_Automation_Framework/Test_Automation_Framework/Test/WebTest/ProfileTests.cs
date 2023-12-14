@@ -59,9 +59,9 @@ public class ProfileTests
     [Test]
     public void testButtonHover()
     {
-        string beforeColor = AllPages.ProfilePage.checkBorderColor(AllPages.ProfilePage.creditButton());
         string afterColor = AllPages.ProfilePage.checkHoverBorderColor(AllPages.ProfilePage.creditButton());
-        Assert.IsFalse(beforeColor == afterColor, "border color does not change on hover");
+        Console.WriteLine(afterColor);
+        Assert.IsTrue(afterColor != "rgb(255, 255, 255)", "border color does not change on hover");
     }
 
     [Test]

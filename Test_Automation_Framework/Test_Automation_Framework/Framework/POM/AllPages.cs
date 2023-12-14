@@ -30,23 +30,6 @@ namespace Test_Automation_Framework.Framework.POM
             AdminPage = new AdminPage(Browser, Wait);
             ProfilePage = new ProfilePage(Browser, Wait);
         }
-        public IWebElement LoadingScreen()
-        {
-            Browser.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
-            Thread.Sleep(500);
-            Browser.Navigate().Refresh();
-            Browser.Manage().Window.Maximize();
-            try
-            {
-                IWebElement loadingScreen =
-                    Wait.Wait.Until(ExpectedConditions.ElementExists(By.CssSelector("div.css-1yo793j img.css-1pma2px")));
-                return loadingScreen;
-            }
-            catch
-            {
-                return null;
-            }
-        }
         public void CloseBrowser()
         {
             Browser.Close();
@@ -54,4 +37,4 @@ namespace Test_Automation_Framework.Framework.POM
         }
     }
     }
-}
+
