@@ -20,6 +20,7 @@ namespace Test_Automation_Framework.Framework.Driver
             Driver = driver;
             Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(timespanInSeconds));
         }
+        //This function waits for the loading screen to dissapear
         public void WaitOnLoadingScreen()
         {
             Driver.Navigate().Refresh();
@@ -27,6 +28,7 @@ namespace Test_Automation_Framework.Framework.Driver
             Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
             Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));
         }
+        //this function checks of the loading screen excists, if not the page gets refreshed
         public void ConfirmPageLoaded()
         {
             try

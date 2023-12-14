@@ -27,7 +27,6 @@ namespace Test_Automation_Framework.Framework.POM
         {
             Driver = browser;
             Wait = wait;
-            //ValidationError = wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
         }
         public void GoToLoginPage()
         {

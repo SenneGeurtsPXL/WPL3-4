@@ -19,7 +19,9 @@ namespace Test_Automation_Framework.Framework.POM
         public WaitManager Wait { get; set; }
         public ConfigReader ConfigFile { get; set; }
         public IWebDriver Browser { get; set; }
-
+        //allpages makes all the pages with a browser and a wait
+        //browser and wait can be modefied with the config file
+        //the config file is read with a stream reader
         public AllPages()
         {
             ConfigFile = new ConfigReader();
