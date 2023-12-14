@@ -36,7 +36,7 @@ namespace Test_Automation_Framework.Framework.Driver
         {
             try
             {
-                IWebElement loadingScreen = Driver.FindElement(By.CssSelector("div.css-1yo793j img.css-1pma2px"));
+                IWebElement loadingScreen = Driver.FindElement(By.CssSelector("div.css-1yo793j"));
                 while (loadingScreen == null)
                 {
                     Driver.Navigate().Refresh();
