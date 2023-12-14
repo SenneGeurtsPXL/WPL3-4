@@ -23,25 +23,30 @@ namespace Test_Automation_Framework.Framework.Driver
         //This function waits for the loading screen to dissapear
         public void WaitOnLoadingScreen()
         {
-                //refreshesh for if there is a white screen
-                Driver.Navigate().Refresh();
-                //css selector for the loading screen
-                string cssSelector = "div.css-1yo793j";
-                //check for the loading screen bug
-                var elements = Driver.FindElements(By.CssSelector(cssSelector));
-                if (elements.Count <= 0)
-                {
-                    //searching loading screen with bug
-                    string secondload = ".css-1k60ssk";
-                    Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(secondload)));
-                    Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(secondload)));
-                }
-                else
-                {
-                    //wait until the loading screen is visible and then is not vissible anymore
-                    Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
-                    Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));   
-                }
+            // Refresh the page to handle any white screen issues
+            Driver.Navigate().Refresh();
+
+            // CSS selectors for the loading screens
+            string firstCssSelector = ".css-1yo793j";
+            string secondCssSelector = ".css-1k60ssk";
+            
+            // Wait for the first loading screen to be visible
+            Thread.Sleep(1000);
+            // Check if either of the loading screens is present
+            var elements = Driver.FindElements(By.CssSelector(firstCssSelector));
+            var elementsSecond = Driver.FindElements(By.CssSelector(secondCssSelector));
+            if (elements.Count > 0)
+            {
+                // Wait for the first loading screen to be visible and then invisible
+                Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(firstCssSelector)));
+                Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(firstCssSelector)));
+            }
+            else if (elementsSecond.Count > 0)
+            {
+                // Wait for the second loading screen to be visible and then invisible
+                Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(secondCssSelector)));
+                Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(secondCssSelector)));
+            }
         }
         //this function checks of the loading screen excists, if not the page gets refreshed
         public void ConfirmPageLoaded()
