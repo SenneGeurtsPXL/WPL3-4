@@ -155,19 +155,13 @@ namespace Test_Automation_Framework.Framework.POM
                             {
                                 isMatch = true;
                                 break;
-                            }
-                            
-                            else
-                            {
-                                Console.WriteLine("probleem");
-                            }
+                            }                          
                         }
                         else
                         {
                             isMatch = false;
                             HasNotMatchedAtLeastOnce = + 1;
                             break;
-
                         }
                     }
                 }
