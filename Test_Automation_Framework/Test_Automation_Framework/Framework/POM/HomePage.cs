@@ -100,10 +100,22 @@ namespace Test_Automation_Framework.Framework.POM
             }
 
         }
+        public bool SearchBarAutocomplete()
+        {
+            try
+            {
+                GetAutocomplete();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
         //The GetAutocompleteOptions gets the autocomplete options after the user has put some input in the searchbar.
         public void GetAutocompleteOptions()
-        {
-            
+        { 
             AutoCompleteOptions = Driver.FindElements(By.CssSelector(".MuiAutocomplete-option"));
         }
 

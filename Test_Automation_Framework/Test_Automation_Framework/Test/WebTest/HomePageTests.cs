@@ -32,21 +32,17 @@ namespace Test_Automation_Framework.Test.WebTest
         [Test]
         public void TestS4()
         {
-            bool SearchBarClickableAndTypeAble = AllPages.HomePage.SearchBarClickAndType();
+            bool AutocompletePresent = AllPages.HomePage.SearchBarAutocomplete();
 
-            if (SearchBarClickableAndTypeAble)
+            if (AutocompletePresent)
             {
-                AllPages.HomePage.GetAutocomplete();
                 bool AllInputsWorkCorrect = AllPages.HomePage.CheckIfInputsAreCorrect();
                 Assert.IsTrue(AllInputsWorkCorrect, "All or Some input do not work correctly");
-
             }
             else
             {
-                Assert.False(true, "Can not click and/or type in searchbar");
-            }
-
-            
+                Assert.False(true, "Cannot find autocomplete");
+            } 
         }
 
         [TearDown]

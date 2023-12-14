@@ -13,8 +13,7 @@ namespace Test_Automation_Framework.Framework.Driver
     public enum BrowserType
     {
         Chrome,
-        Edge, 
-        Firefox
+        Edge
     }
     public class DriverManager
     {
@@ -35,15 +34,6 @@ namespace Test_Automation_Framework.Framework.Driver
 
             }
         }
-        public static IWebDriver Firefox
-        {
-            get
-            {
-
-                return new FirefoxDriver();
-
-            }
-        }
         public static IWebDriver GetDriver(string browserType)
         {
             switch (browserType)
@@ -52,8 +42,6 @@ namespace Test_Automation_Framework.Framework.Driver
                     return DriverManager.Chrome;
                 case "edge":
                     return DriverManager.Edge;
-                case "firefox":
-                    return DriverManager.Firefox;
                 default:
                     throw new ArgumentException("Invalid browser type");
             }
