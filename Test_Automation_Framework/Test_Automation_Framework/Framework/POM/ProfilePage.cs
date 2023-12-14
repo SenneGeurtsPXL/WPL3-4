@@ -26,7 +26,7 @@ namespace Test_Automation_Framework.Framework.POM
 
         public void goToPage()
         {
-            //starten van homepagina
+            //starting homepagina
             Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
             Thread.Sleep(500);
             Driver.Navigate().Refresh();
@@ -35,7 +35,7 @@ namespace Test_Automation_Framework.Framework.POM
             Driver.Navigate().Refresh();
             WaitManager.WaitOnLoadingScreen();
             
-            //clicken op sign in button 
+            //click on sign in button 
             IWebElement signInButton = Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButton")));
             signInButton.Click();
             
@@ -49,18 +49,18 @@ namespace Test_Automation_Framework.Framework.POM
                 Wait.Until(ExpectedConditions.ElementExists(By.Id("SignInButtonComplete")));
             signInButtonComplete.Click();
             
-            //naar profile page gaan
+            //go to profile page
             IWebElement profileButton =
                 Wait.Until(ExpectedConditions.ElementExists(
                     By.CssSelector("a[href='#/profile'] button#OrdersPageButton")));
             profileButton.Click();
-            //kort wachten tot alles is ingeladen
+            //wait until everything is loaded
             Thread.Sleep(200);
         }
 
         public IReadOnlyCollection<IWebElement> getAllPElements()
         {
-            //alle elementen met tagname p vinden en teruggeven
+            //return all elements with tagname p
             Wait.Until(ExpectedConditions.ElementExists(By.TagName("p")));
             IReadOnlyCollection<IWebElement> paragraphElements = Driver.FindElements(By.TagName("p"));
             return paragraphElements;
@@ -69,10 +69,10 @@ namespace Test_Automation_Framework.Framework.POM
 
         public IWebElement creditButton()
         {
-            //alle buttons zoeken
+            //search all buttons
             Wait.Until(ExpectedConditions.ElementExists(By.TagName("button")));
             IReadOnlyCollection<IWebElement> allButtons = Driver.FindElements(By.TagName("button"));
-            //button met add credits uit deze buttons zoeken en returnen en anders null returnen
+            //searching button with add credits and return it
             foreach (var button in allButtons)
             {
                 if (button.Text.ToLower().Contains("add credits"))
@@ -86,23 +86,23 @@ namespace Test_Automation_Framework.Framework.POM
 
         public void addCredits(int credits)
         {
-            //creditbutton clicken met vorige methode
+            //clicking credit button with previous method
             IWebElement button = creditButton();
             creditButton().Click();
-            //input zoeken voor credits en invullen
+            //searching input to enter credits in
             IWebElement creditfield = Driver.FindElement(By.Name("amount"));
             creditfield.SendKeys(credits.ToString());
-            //buy button zoeken op basis van de text in de button en dan clicken
+            //searching and clicking buy button based on the text in that button
             IWebElement buttonBuy = Driver.FindElement(By.XPath("//button[text()='buy']"));
             buttonBuy.Click();
         }
 
         public string getCredits()
         {
-            //browser refreshen voor als er net credits zijn toegevoegd maar nog niet displayed
+            //refreshing browser for if new credits are added but not yet displayed
             Driver.Navigate().Refresh();
             WaitManager.WaitOnLoadingScreen();
-            //laatstse p element zoeken en teruggeven (element waar de hoeveelheid credits zit)
+            //find last p element and return it
             Wait.Until(ExpectedConditions.ElementExists(By.TagName("p")));
             var allPElements = getAllPElements();
             var lastElement = allPElements.LastOrDefault();
@@ -111,27 +111,27 @@ namespace Test_Automation_Framework.Framework.POM
 
         public string checkBorderColor(IWebElement button)
         {
-            //geeft de border color terug van een button
+            //return border color of a button
             return button.GetCssValue("border-color");
         }
 
         public string checkHoverBorderColor(IWebElement button)
         {
-            //hoveren over button en dan border color terug geven
+            //hover over a button and return the border color
             var action = new Actions(Driver);
             action.MoveToElement(button).Perform();
             return button.GetCssValue("border-color");
         }
 
-        //gets the loading screen, to be moved somewhere else
+        
         public IWebElement loadingScreen()
         {
-            //btube opendoen en wachten op mogelijk with scherm om dan te refreshen
+            //opens btube site and waits on white screen and then refreshes
             Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
             Thread.Sleep(500);
             Driver.Navigate().Refresh();
             Driver.Manage().Window.Maximize();
-            //zoeken naar een loading screen en als er niets gevonden is geen loading screen terug geven
+            //searching for a loading screen
             try
             {
                 IWebElement loadingScreen =
@@ -145,13 +145,13 @@ namespace Test_Automation_Framework.Framework.POM
         }
         public string getFirstName()
         {
-            //alle p elementen ophalen
+            //gets all p elements
             var allPElements = getAllPElements();
-            //bool voor als p element met "FIRSTNAME:" gevonden is
+            //bool for if p element with "FIRSTNAME:" is found
             bool foundFirstName = false;
             foreach (var element in allPElements)
             {
-                //als p element met "FIRSTNAME:" gevonden is dan checken of volgende element geen "LASTNAME:" en anders de firstname terug geven
+                //if p element with "FIRSTNAME:" is found, return the text if the next p element is not "LASTNAME:"
                 if (foundFirstName)
                 {
                     string text = element.Text;
@@ -161,7 +161,7 @@ namespace Test_Automation_Framework.Framework.POM
                     }
                     return text;
                 }
-                //checken of p element met "FIRSTNAME:" gevonden is
+                //check if p element is "FIRSTNAME:"
                 if (element.Text == "FIRSTNAME:")
                 {
                     foundFirstName = true;

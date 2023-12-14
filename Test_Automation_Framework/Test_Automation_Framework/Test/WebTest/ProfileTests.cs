@@ -10,7 +10,6 @@ public class ProfileTests
     [SetUp]
     public void setup()
     {
-        //senne dit is de juiste
         AllPages = new AllPages();
         AllPages.ProfilePage.goToPage();
     }
@@ -70,9 +69,6 @@ public class ProfileTests
         string firstName = AllPages.ProfilePage.getFirstName();
         Assert.IsNotNull(firstName, "404 the first name is not found");
     }
-
-    //also would need to be moved
-
 
     [TearDown]
     public void TearDown()

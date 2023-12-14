@@ -23,20 +23,37 @@ namespace Test_Automation_Framework.Framework.Driver
         //This function waits for the loading screen to dissapear
         public void WaitOnLoadingScreen()
         {
-            //refreshen voor als er een wit scherm is
+            // Refresh the page to handle any white screen issues
             Driver.Navigate().Refresh();
-            //css selector voor de loading screen
-            string cssSelector = "div.css-1yo793j";
-            //wachten tot loading screen zichtbaar is en dan wachten tot het niet meer zichtbaar is
-            Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
-            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));
+
+            // CSS selectors for the loading screens
+            string firstCssSelector = ".css-1yo793j";
+            string secondCssSelector = ".css-1k60ssk";
+            
+            // Wait for the first loading screen to be visible
+            Thread.Sleep(1000);
+            // Check if either of the loading screens is present
+            var elements = Driver.FindElements(By.CssSelector(firstCssSelector));
+            var elementsSecond = Driver.FindElements(By.CssSelector(secondCssSelector));
+            if (elements.Count > 0)
+            {
+                // Wait for the first loading screen to be visible and then invisible
+                Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(firstCssSelector)));
+                Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(firstCssSelector)));
+            }
+            else if (elementsSecond.Count > 0)
+            {
+                // Wait for the second loading screen to be visible and then invisible
+                Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(secondCssSelector)));
+                Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(secondCssSelector)));
+            }
         }
         //this function checks of the loading screen excists, if not the page gets refreshed
         public void ConfirmPageLoaded()
         {
             try
             {
-                IWebElement loadingScreen = Driver.FindElement(By.CssSelector("div.css-1yo793j img.css-1pma2px"));
+                IWebElement loadingScreen = Driver.FindElement(By.CssSelector("div.css-1yo793j"));
                 while (loadingScreen == null)
                 {
                     Driver.Navigate().Refresh();
