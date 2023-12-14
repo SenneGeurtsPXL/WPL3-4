@@ -21,18 +21,13 @@ namespace Test_Automation_Framework.Test.WebTest
         [Test]
         public void TestS1()
         {
-
             AllPages.HomePage.SearchBarClickAndType();
-
             Assert.Pass();
         }
         [Test]
         public void TestS3()
         {
-
-            string navigationColor = AllPages.HomePage.Navigation.GetCssValue("background-color");
-            Assert.AreEqual("rgba(20, 20, 20, 1)", navigationColor);
-
+            Assert.AreEqual("rgba(20, 20, 20, 1)", AllPages.HomePage.HeaderBackgroundColor, "Header has color rgb(20, 20, 20) / Hexadecimal: 141414", "Header has the wrong color");
         }
         [Test]
         public void TestS4()
@@ -46,5 +41,6 @@ namespace Test_Automation_Framework.Test.WebTest
         {
             AllPages.CloseBrowser();
         }
+   
     }
 }
