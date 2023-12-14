@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework.Internal.Execution;
+using OpenQA.Selenium;
 using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace Test_Automation_Framework.Framework.POM
                         {"Jänssens", ""},
                         {"不願做奴隸", ""},
                         {"123456", ""},
-                        //{"No InputValue", ""},                      
+                        {"", "1BR, A Whisker Away, After"},                      
                         //{"SQL statement", ""}
                     };
 
@@ -68,20 +69,34 @@ namespace Test_Automation_Framework.Framework.POM
         }
         public void GetAutocomplete()
         {
+            SearchBar.Click();
             AutoComplete = Driver.FindElement(By.CssSelector(".MuiAutocomplete-option"));
         }
-        public void SearchBarClickAndType()
+        public bool SearchBarClickAndType()
         {
-            SearchBar.Click();
-            SearchBar.SendKeys("a");
+            try
+            {
+                SearchBar.Click();
+                SearchBar.SendKeys("a");
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
         }
         public void GetAutocompleteOptions()
         {
+            
             AutoCompleteOptions = Driver.FindElements(By.CssSelector(".MuiAutocomplete-option"));
         }
         public void SearchBarClearAndSendKey(string testCase)
         {
+            
             SearchBar.Clear();
+            SearchBar.Click();
+
             SearchBar.SendKeys(testCase);
             GetAutocompleteOptions();
             CheckForDropDown();
@@ -99,12 +114,21 @@ namespace Test_Automation_Framework.Framework.POM
         {
             HeaderBackgroundColor = Navigation.GetCssValue("background-color");
         }
-        public void CheckIfInputsAreCorrect()
+
+        public void TypeAndThenDelete()
         {
-            SearchBar.Click();
+            SearchBar.SendKeys("a");
+            SearchBar.Clear();
+        }
+        public bool CheckIfInputsAreCorrect()
+        {
+            bool isMatch;
+            int HasNotMatchedAtLeastOnce = 0;
+
+
             foreach (var testCase in testInput)
             {
-                bool isMatch = false;
+                isMatch = false;
 
                 SearchBarClearAndSendKey(testCase.Key);
 
@@ -114,23 +138,34 @@ namespace Test_Automation_Framework.Framework.POM
                 {
                     isMatch = true;
                 }
+                else if (AutoCompleteOptions.Count > 0 && expectedValues.All(string.IsNullOrEmpty))
+                {
+                    isMatch = false;
+                    HasNotMatchedAtLeastOnce = +1;
+                }
                 else
                 {
-                    for (int i = 0; i < AutoCompleteOptions.Count; i++)
+                    for (int i = 0; i < expectedValues.Count; i++)
                     {
                         string optionText = AutoCompleteOptions[i].Text.Trim();
 
-                        if (AutoCompleteOptions.Count == expectedValues.Count)
+                        if (AutoCompleteOptions.Count >= expectedValues.Count)
                         {
                             if (expectedValues.Any(value => optionText.ToLower().Contains(value.ToLower())))
                             {
                                 isMatch = true;
                                 break;
                             }
+                            
+                            else
+                            {
+                                Console.WriteLine("probleem");
+                            }
                         }
                         else
                         {
                             isMatch = false;
+                            HasNotMatchedAtLeastOnce = + 1;
                             break;
 
                         }
@@ -141,6 +176,16 @@ namespace Test_Automation_Framework.Framework.POM
                     Console.WriteLine($"Failed for input '{testCase.Key}': Expected '{testCase.Value}', Actual '{string.Join(", ", AutoCompleteOptions.Select(opt => opt.Text))}'");
 
                 }
+
+                
+            }
+            if (HasNotMatchedAtLeastOnce > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
     }
