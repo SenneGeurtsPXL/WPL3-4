@@ -21,6 +21,10 @@ namespace Test_Automation_Framework.Framework.POM
         public WaitManager Wait { get; set; }
         public IWebDriver Driver { get; set; }
 
+        //testInput are inputs that test test the autocomplete with a Key and Value.
+        //The input you type in in the Key and the expected (autocomplete) result is the Value.
+        //<'INPUT', 'EXPECTEDRESULT'>
+
         public Dictionary<string, string> testInput = new Dictionary<string, string>
                     {
                         {"After", "After, After we collided"},
@@ -48,6 +52,8 @@ namespace Test_Automation_Framework.Framework.POM
                         //{"SQL statement", ""}
                     };
 
+        //The GoToPage method goed to the required url, maximizes the window and confirms if the page is loaded correctly.
+        
         public void GoToPage()
         {
             Driver.Navigate().GoToUrl("https://btube-app.onrender.com/#/");
@@ -56,22 +62,30 @@ namespace Test_Automation_Framework.Framework.POM
             Wait.WaitOnLoadingScreen();
             FindElements();
         }
+
+        //HomePage constructor gets assigned a brower type (firefox, chrome, edge,..) and a WaitManager (for the 'wait x seconds until the element is present')
         public HomePage(IWebDriver browser, WaitManager wait)
         {
             this.Driver = browser;
             this.Wait = wait;
         }
+
+        //The FindElements method selects the elements that can be selected without a condition. Example: Autocomplete not visable untill clicked so autocomplete cannot be selected here.
         public void FindElements()
         {
             SearchBar = Driver.FindElement(By.CssSelector("input"));
             Navigation = Wait.Wait.Until(ExpectedConditions.ElementExists(By.Id("nav")));
             GetHeaderBackgroundColor();
         }
+
+        //The GetAutocomplete method first clicks on the searchbar and then selects the autocomplete css value
         public void GetAutocomplete()
         {
             SearchBar.Click();
             AutoComplete = Driver.FindElement(By.CssSelector(".MuiAutocomplete-option"));
         }
+
+        //The SearchBarClickAndType clicks on the searchbar and types a random keyword (checks if it is clickable and typeable)
         public bool SearchBarClickAndType()
         {
             try
@@ -86,46 +100,33 @@ namespace Test_Automation_Framework.Framework.POM
             }
 
         }
+        //The GetAutocompleteOptions gets the autocomplete options after the user has put some input in the searchbar.
         public void GetAutocompleteOptions()
         {
             
             AutoCompleteOptions = Driver.FindElements(By.CssSelector(".MuiAutocomplete-option"));
         }
+
+        //The SearchBarClearAndSendKey clears the searchbar so the inputs don't add on the previous one. Then a new input is put in the seachbar.
         public void SearchBarClearAndSendKey(string testCase)
-        {
-            
+        {         
             SearchBar.Clear();
             SearchBar.Click();
-
             SearchBar.SendKeys(testCase);
             GetAutocompleteOptions();
-            CheckForDropDown();
         }
-        public void CheckForDropDown()
-        {
-            IWebElement dropdown = AutoComplete;
-            if (dropdown == null)
-            {
-                Console.WriteLine("Step failed: Dropdown not displayed");
-                return;
-            }
-        }
+        //GetHeaderBackgroundColor selects the background color (with the css value) of IWebElement Navigation
         public void GetHeaderBackgroundColor()
         {
             HeaderBackgroundColor = Navigation.GetCssValue("background-color");
         }
-
-        public void TypeAndThenDelete()
-        {
-            SearchBar.SendKeys("a");
-            SearchBar.Clear();
-        }
+        //The CheckIfInputsAreCorrect puts all the Key values of the dictionary testInput in the searchbar and controls if the autocomplete has the right output.
         public bool CheckIfInputsAreCorrect()
         {
             bool isMatch;
             int HasNotMatchedAtLeastOnce = 0;
 
-
+            //All input will get controlled on by one using a foreach
             foreach (var testCase in testInput)
             {
                 isMatch = false;
@@ -155,19 +156,13 @@ namespace Test_Automation_Framework.Framework.POM
                             {
                                 isMatch = true;
                                 break;
-                            }
-                            
-                            else
-                            {
-                                Console.WriteLine("probleem");
-                            }
+                            }                          
                         }
                         else
                         {
                             isMatch = false;
                             HasNotMatchedAtLeastOnce = + 1;
                             break;
-
                         }
                     }
                 }

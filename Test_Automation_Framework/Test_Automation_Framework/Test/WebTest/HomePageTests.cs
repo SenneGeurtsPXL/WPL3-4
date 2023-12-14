@@ -12,7 +12,7 @@ namespace Test_Automation_Framework.Test.WebTest
     {
         public AllPages AllPages { get; set; }
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             AllPages = new AllPages();
             AllPages.HomePage.GoToPage();
