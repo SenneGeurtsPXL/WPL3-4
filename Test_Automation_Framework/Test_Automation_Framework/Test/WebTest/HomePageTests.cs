@@ -21,8 +21,8 @@ namespace Test_Automation_Framework.Test.WebTest
         [Test]
         public void TestS1()
         {
-            AllPages.HomePage.SearchBarClickAndType();
-            Assert.Pass();
+            bool SearchBarClickableAndTypeAble = AllPages.HomePage.SearchBarClickAndType();
+            Assert.IsTrue(SearchBarClickableAndTypeAble, "Can not click and/or type in searchbar");
         }
         [Test]
         public void TestS3()
@@ -32,8 +32,21 @@ namespace Test_Automation_Framework.Test.WebTest
         [Test]
         public void TestS4()
         {
-            AllPages.HomePage.GetAutocomplete();
-            Assert.Pass();
+            bool SearchBarClickableAndTypeAble = AllPages.HomePage.SearchBarClickAndType();
+
+            if (SearchBarClickableAndTypeAble)
+            {
+                AllPages.HomePage.GetAutocomplete();
+                bool AllInputsWorkCorrect = AllPages.HomePage.CheckIfInputsAreCorrect();
+                Assert.IsTrue(AllInputsWorkCorrect, "All or Some input do not work correctly");
+
+            }
+            else
+            {
+                Assert.False(true, "Can not click and/or type in searchbar");
+            }
+
+            
         }
 
         [TearDown]
