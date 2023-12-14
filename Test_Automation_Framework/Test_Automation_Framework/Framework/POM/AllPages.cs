@@ -14,6 +14,7 @@ namespace Test_Automation_Framework.Framework.POM
         public LoginPage LoginPage { get; set; }
         public RegistrationPage RegistrationPage { get; set; }
         public AdminPage AdminPage { get; set; }
+        public HomePage HomePage { get; set; }  
         public ProfilePage ProfilePage { get; set; }
         public WaitManager Wait { get; set; }
         public ConfigReader ConfigFile { get; set; }
@@ -24,7 +25,7 @@ namespace Test_Automation_Framework.Framework.POM
             ConfigFile = new ConfigReader();
             Browser = DriverManager.GetDriver(ConfigFile.BrowserType);
             Wait = new WaitManager(Browser, ConfigFile.WaitTime);
-
+            HomePage = new HomePage(Browser, Wait);
             RegistrationPage = new RegistrationPage(Browser, Wait);
             LoginPage = new LoginPage(Browser, Wait);
             AdminPage = new AdminPage(Browser, Wait);
