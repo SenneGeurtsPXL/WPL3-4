@@ -26,16 +26,22 @@ namespace Test_Automation_Framework.Test.WebTest
         public void RegistrationFormValidationError1()
         {
             AllPages.RegistrationPage.Register(FirstName, LastName, Emails[0], Password, RePassword[0]);
-            Assert.True(AllPages.RegistrationPage.GetValidationError() == "Passwords don't match.");
+            Assert.True(AllPages.RegistrationPage.GetValidationError() == "Passwords don't match.", "No validation error in registration form");
         }
         [Test]
         public void RegistrationFormValidationError2()
         {
             AllPages.RegistrationPage.Register(FirstName, LastName, Emails[1], Password, RePassword[1]);
-            Assert.True(AllPages.RegistrationPage.GetValidationError() == "Account is already registered.");
+            Assert.True(AllPages.RegistrationPage.GetValidationError() == "Account is already registered.", "No validation error in registration form");
+        }
+        [Test]
+        public void RegistrationFormValidationError3()
+        {
+            AllPages.RegistrationPage.Register("", "", "", "", "");
+            Assert.True(AllPages.RegistrationPage.GetValidationError() == "Account is already registered.", "No validation error in registration form");
         }
         [Test]  
-        public void RegistrationFormValidationError3()
+        public void RegistrationFormValidationError4()
         {
             AllPages.RegistrationPage.Register("ditiseentest", "ditiseenteste", "Correcteemail@email.be", "TestTest123!", "TestTest123!");
             AllPages.LoginPage.LoginAsAdmin();

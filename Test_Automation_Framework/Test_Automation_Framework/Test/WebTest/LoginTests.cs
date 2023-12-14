@@ -23,28 +23,34 @@ namespace Test_Automation_Framework.Test.WebTest
         [Test]
         public void LoginFormValidationError1()
         {
-            //VOOR VOLGENDE WOENSDAG
             AllPages.LoginPage.Login(Emails[0], Passwords[0]);
-            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Email or password incorrect.");
+            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Email or password incorrect.", "No validation error on login from");
         }
         [Test]
         public void LoginFormValidationError2()
         {
             AllPages.LoginPage.Login(Emails[1], Passwords[1]);
-            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Please fill in a correct email-adress.");
+            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Please fill in a correct email-adress.", "No validation error on login from");
         }
         [Test]
         public void LoginFormValidationError3()
         {
             AllPages.LoginPage.Login(Emails[2], Passwords[2]);
-            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Email or password incorrect.");
+            Assert.IsTrue(AllPages.LoginPage.GetValidationError() == "Email or password incorrect.", "No validation error on login from");
         }
         [Test]
         public void LoginFormValidationError4()
         {
             AllPages.LoginPage.Login(Emails[3], Passwords[3]);
         }
+        [Test]
+        public void LoginFormValidationError5()
+        {
+            AllPages.LoginPage.Login("", "");
+            
+            Assert.IsTrue(AllPages.LoginPage.HasIsRequiredType() == true, "No validation error on login from");
 
+        }
         [Test]
         public void TinyVisualBug()
         {
