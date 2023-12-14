@@ -23,13 +23,25 @@ namespace Test_Automation_Framework.Framework.Driver
         //This function waits for the loading screen to dissapear
         public void WaitOnLoadingScreen()
         {
-            //refreshen voor als er een wit scherm is
-            Driver.Navigate().Refresh();
-            //css selector voor de loading screen
-            string cssSelector = "div.css-1yo793j";
-            //wachten tot loading screen zichtbaar is en dan wachten tot het niet meer zichtbaar is
-            Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
-            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));
+                //refreshesh for if there is a white screen
+                Driver.Navigate().Refresh();
+                //css selector for the loading screen
+                string cssSelector = "div.css-1yo793j";
+                //check for the loading screen bug
+                var elements = Driver.FindElements(By.CssSelector(cssSelector));
+                if (elements.Count <= 0)
+                {
+                    //searching loading screen with bug
+                    string secondload = ".css-1k60ssk";
+                    Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(secondload)));
+                    Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(secondload)));
+                }
+                else
+                {
+                    //wait until the loading screen is visible and then is not vissible anymore
+                    Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(cssSelector)));
+                    Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.CssSelector(cssSelector)));   
+                }
         }
         //this function checks of the loading screen excists, if not the page gets refreshed
         public void ConfirmPageLoaded()
