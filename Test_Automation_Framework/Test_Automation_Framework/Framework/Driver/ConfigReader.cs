@@ -15,23 +15,14 @@ namespace Test_Automation_Framework.Framework.Driver
 
         public ConfigReader() 
         {
-            // Read the JSON string from a file or any other source
             string jsonString = ReadJsonFromFile(@"..\..\..\Framework\Config.txt");
-
-            // Deserialize the JSON string
             var jsonSettings = new JsonSerializerSettings
             {
-                // Use camelCase for property names
                 ContractResolver = new Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver()
             };
-
             var jsonObject = JsonConvert.DeserializeObject<JObject>(jsonString, jsonSettings);
-
-            // Access values using property names
             string browser = jsonObject["browser"]?.ToString();
             int waitTime = jsonObject["waittime"]?.ToObject<int>() ?? 0;
-
-            // Output the values
             BrowserType = browser;
             WaitTime = waitTime;
         }

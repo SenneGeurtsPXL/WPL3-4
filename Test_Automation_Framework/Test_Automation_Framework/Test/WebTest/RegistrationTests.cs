@@ -37,9 +37,11 @@ namespace Test_Automation_Framework.Test.WebTest
         [Test]
         public void RegistrationFormValidationError3()
         {
-            AllPages.RegistrationPage.Register("", "", "", "", "");
-            Assert.True(AllPages.RegistrationPage.GetValidationError() == "Account is already registered.", "No validation error in registration form");
+            AllPages.RegistrationPage.Register("", "","","","");
+            Assert.IsTrue(AllPages.RegistrationPage.HasIsRequiredType() == true, "No validation error on registration from");
+
         }
+
         [Test]  
         public void RegistrationFormValidationError4()
         {

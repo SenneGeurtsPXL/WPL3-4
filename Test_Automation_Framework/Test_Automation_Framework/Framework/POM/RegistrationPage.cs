@@ -43,7 +43,7 @@ namespace Test_Automation_Framework.Framework.POM
             Driver.Manage().Window.Maximize();
             Wait.ConfirmPageLoaded();
         }
-        public void Register(string firstName,string lastName,string email,string password,string rePassword)
+        public void Register(string firstName, string lastName, string email, string password, string rePassword)
         {
             GoToRegistrationPage();
             Wait.WaitOnLoadingScreen();
@@ -60,6 +60,21 @@ namespace Test_Automation_Framework.Framework.POM
             ValidationError = Wait.Wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("code")));
             return ValidationError.Text;
 
+        }
+        public bool HasIsRequiredType()
+        {
+            bool isRequired = EmailInputField.GetAttribute("required") != null;
+
+            if (isRequired)
+            {
+                Console.WriteLine("The input has the 'required' attribute.");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("The input does not have the 'required' attribute.");
+                return false;
+            }
         }
     }
 }
